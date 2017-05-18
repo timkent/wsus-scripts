@@ -3,8 +3,8 @@ $wsus = [Microsoft.UpdateServices.Administration.AdminProxy]::GetUpdateServer();
 
 # Accept EULA for all updates
 $updates = $wsus.GetUpdates()
-$license = $updates | Where {$_.RequiresLicenseAgreementAcceptance}
-$license | ForEach {$_.AcceptLicenseAgreement()}
+$license = $updates | Where-Object {$_.RequiresLicenseAgreementAcceptance}
+$license | ForEach-Object {$_.AcceptLicenseAgreement()}
 Remove-Variable license, updates
 
 # WSUS maintenance tasks
