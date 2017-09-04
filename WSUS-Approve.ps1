@@ -2,7 +2,7 @@
 # https://github.com/timkent/wsus-scripts
 
 try {
-    [reflection.assembly]::LoadWithPartialName("Microsoft.UpdateServices.Administration") | Out-Null
+    [Reflection.Assembly]::LoadWithPartialName("Microsoft.UpdateServices.Administration") | Out-Null
     $wsus = [Microsoft.UpdateServices.Administration.AdminProxy]::GetUpdateServer()
 }
 catch {
